@@ -1,7 +1,7 @@
 const express = require('express');
 const sequelize = require('./db');
-const peliRoutes = require('./routes/peliculas.routes');
-const authRoutes = require('./routes/auth.routes'); 
+const peliculasRoutes = require('./peliculas.routes');
+const authRoutes = require('./auth.routes');
 const logger = require('./middlewares/logger');
 const authMiddleware = require('./middlewares/auth'); 
 
