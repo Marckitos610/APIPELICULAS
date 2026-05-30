@@ -1,9 +1,9 @@
-const jwt = require('jsonwebtoken');
-const SECRET_KEY = 'mi_clave_secreta_super_segura'; // En producción, esto va en un .env
+import jwt from 'jsonwebtoken';
 
-module.exports = (req, res, next) => {
+const SECRET_KEY = process.env.JWT_SECRET || 'mi_clave_secreta_super_segura';
+
+const authMiddleware = (req, res, next) => {
   const authHeader = req.headers['authorization'];
-  // El formato suele ser "Bearer <TOKEN>"
   const token = authHeader && authHeader.split(' ')[1];
 
   if (!token) {
@@ -12,7 +12,9 @@ module.exports = (req, res, next) => {
 
   jwt.verify(token, SECRET_KEY, (err, user) => {
     if (err) return res.status(403).json({ error: 'Token inválido o expirado' });
-    req.user = user; // Guardamos los datos del usuario en la petición
+    req.user = user;
     next();
   });
 };
+
+export default authMiddleware;
