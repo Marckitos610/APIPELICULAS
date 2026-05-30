@@ -15,6 +15,10 @@ app.use('/auth', authRoutes);
 
 app.use('/peliculas', authMiddleware, peliRoutes);
 
+const PORT = process.env.PORT || 3000;
+
 sequelize.sync().then(() => {
-  app.listen(3000, () => console.log('API con JWT lista en http://localhost:3000'));
+    app.listen(PORT, () => {
+        console.log(`API con JWT lista en el puerto ${PORT}`);
+    });
 });
