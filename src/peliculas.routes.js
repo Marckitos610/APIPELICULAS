@@ -1,5 +1,5 @@
 import express from 'express';
-import * as service from '../services/peliculas.service.js';
+import * as service from './peliculas.service.js';
 
 const router = express.Router();
 
