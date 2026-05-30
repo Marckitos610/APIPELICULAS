@@ -1,4 +1,4 @@
-import Pelicula from '../models/pelicula.js';
+import Pelicula from './pelicula.js';
 
 class PeliculasService {
   async getAll()       { return await Pelicula.findAll(); }
