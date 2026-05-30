@@ -1,5 +1,5 @@
 import express from 'express';
-import * as service from './peliculas.service.js';
+import service from './peliculas.service.js'; // sin el *
 
 const router = express.Router();
 
