@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "sqlite3-offline": "^4.3.1"
+  }
+}
